@@ -87,7 +87,10 @@ brew tap bluewave-labs/tap
 brew install --cask dodoshot
 ```
 
-The Homebrew installation automatically handles the quarantine flag removal.
+If you encounter a "damaged app" warning, run:
+```bash
+xattr -cr /Applications/DodoShot.app
+```
 
 ### Download DMG
 1. Download the latest DMG from [Releases](https://github.com/bluewave-labs/DodoShot/releases)
