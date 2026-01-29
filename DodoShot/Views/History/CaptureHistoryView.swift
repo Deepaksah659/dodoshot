@@ -25,7 +25,7 @@ class CaptureHistoryWindowController {
             defer: false
         )
 
-        window.title = "Capture History"
+        window.title = L10n.History.title
         window.titlebarAppearsTransparent = true
         window.titleVisibility = .hidden
         window.backgroundColor = NSColor.windowBackgroundColor
@@ -55,15 +55,31 @@ struct CaptureHistoryView: View {
     @State private var viewMode: ViewMode = .grid
 
     enum CaptureTypeFilter: String, CaseIterable {
-        case all = "All"
-        case area = "Area"
-        case window = "Window"
-        case fullscreen = "Fullscreen"
+        case all
+        case area
+        case window
+        case fullscreen
+
+        var localizedName: String {
+            switch self {
+            case .all: return L10n.History.all
+            case .area: return L10n.History.areas
+            case .window: return L10n.History.windows
+            case .fullscreen: return L10n.History.fullscreens
+            }
+        }
     }
 
     enum SortOrder: String, CaseIterable {
-        case newest = "Newest"
-        case oldest = "Oldest"
+        case newest
+        case oldest
+
+        var localizedName: String {
+            switch self {
+            case .newest: return L10n.History.newest
+            case .oldest: return L10n.History.oldest
+            }
+        }
     }
 
     enum ViewMode {
@@ -140,7 +156,7 @@ struct CaptureHistoryView: View {
                     )
                 )
 
-            Text("Capture History")
+            Text(L10n.History.title)
                 .font(.system(size: 15, weight: .semibold))
 
             Spacer()
@@ -183,7 +199,7 @@ struct CaptureHistoryView: View {
             // Filter picker
             Picker("Filter", selection: $filterType) {
                 ForEach(CaptureTypeFilter.allCases, id: \.self) { type in
-                    Text(type.rawValue).tag(type)
+                    Text(type.localizedName).tag(type)
                 }
             }
             .pickerStyle(.segmented)
@@ -196,7 +212,7 @@ struct CaptureHistoryView: View {
                 ForEach(SortOrder.allCases, id: \.self) { order in
                     Button(action: { sortOrder = order }) {
                         HStack {
-                            Text(order.rawValue)
+                            Text(order.localizedName)
                             if sortOrder == order {
                                 Image(systemName: "checkmark")
                             }
@@ -206,7 +222,7 @@ struct CaptureHistoryView: View {
             } label: {
                 HStack(spacing: 4) {
                     Image(systemName: "arrow.up.arrow.down")
-                    Text(sortOrder.rawValue)
+                    Text(sortOrder.localizedName)
                 }
                 .font(.system(size: 11, weight: .medium))
                 .foregroundColor(.secondary)
@@ -301,11 +317,11 @@ struct CaptureHistoryView: View {
                 .foregroundColor(.secondary.opacity(0.4))
 
             VStack(spacing: 6) {
-                Text("No captures yet")
+                Text(L10n.History.noCaptures)
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.primary)
 
-                Text("Take a screenshot to see it here")
+                Text(L10n.History.noCapturesDescription)
                     .font(.system(size: 13))
                     .foregroundColor(.secondary)
             }
@@ -441,21 +457,21 @@ struct HistoryGridItem: View {
         }
         .contextMenu {
             Button(action: { ScreenCaptureService.shared.copyToClipboard(screenshot) }) {
-                Label("Copy", systemImage: "doc.on.clipboard")
+                Label(L10n.ContextMenu.copy, systemImage: "doc.on.clipboard")
             }
             Button(action: { ScreenCaptureService.shared.saveToFile(screenshot) }) {
-                Label("Save to file", systemImage: "square.and.arrow.down")
+                Label(L10n.ContextMenu.save, systemImage: "square.and.arrow.down")
             }
             Button(action: { FloatingWindowService.shared.pinScreenshot(screenshot) }) {
-                Label("Pin to screen", systemImage: "pin")
+                Label(L10n.ContextMenu.pin, systemImage: "pin")
             }
             Divider()
             Button(action: { QuickOverlayManager.shared.showOverlay(for: screenshot) }) {
-                Label("Show overlay", systemImage: "rectangle.on.rectangle")
+                Label("history.showOverlay".localized, systemImage: "rectangle.on.rectangle")
             }
             Divider()
             Button(role: .destructive, action: { deleteScreenshot(screenshot) }) {
-                Label("Delete", systemImage: "trash")
+                Label(L10n.ContextMenu.delete, systemImage: "trash")
             }
         }
     }
@@ -548,17 +564,17 @@ struct HistoryListItem: View {
         }
         .contextMenu {
             Button(action: { ScreenCaptureService.shared.copyToClipboard(screenshot) }) {
-                Label("Copy", systemImage: "doc.on.clipboard")
+                Label(L10n.ContextMenu.copy, systemImage: "doc.on.clipboard")
             }
             Button(action: { ScreenCaptureService.shared.saveToFile(screenshot) }) {
-                Label("Save to file", systemImage: "square.and.arrow.down")
+                Label(L10n.ContextMenu.save, systemImage: "square.and.arrow.down")
             }
             Button(action: { FloatingWindowService.shared.pinScreenshot(screenshot) }) {
-                Label("Pin to screen", systemImage: "pin")
+                Label(L10n.ContextMenu.pin, systemImage: "pin")
             }
             Divider()
             Button(role: .destructive, action: { deleteScreenshot(screenshot) }) {
-                Label("Delete", systemImage: "trash")
+                Label(L10n.ContextMenu.delete, systemImage: "trash")
             }
         }
     }

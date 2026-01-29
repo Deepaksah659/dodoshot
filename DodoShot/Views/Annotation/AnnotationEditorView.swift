@@ -192,14 +192,14 @@ struct AnnotationEditorView: View {
             HStack(spacing: 6) {
                 ToolbarActionButton(
                     icon: "arrow.uturn.backward",
-                    label: "Undo",
+                    label: L10n.Annotation.undo,
                     isDisabled: annotations.isEmpty,
                     action: undo
                 )
 
                 ToolbarActionButton(
                     icon: "trash",
-                    label: "Clear",
+                    label: L10n.Annotation.clear,
                     isDisabled: annotations.isEmpty,
                     isDestructive: true,
                     action: clearAll
@@ -232,12 +232,12 @@ struct AnnotationEditorView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.blue)
 
-                    Text("Add text annotation")
+                    Text(L10n.Annotation.addTextTitle)
                         .font(.system(size: 15, weight: .semibold))
                 }
 
                 // Text field
-                TextField("Type your text...", text: $currentText)
+                TextField(L10n.Annotation.textPlaceholder, text: $currentText)
                     .textFieldStyle(.plain)
                     .font(.system(size: 14))
                     .padding(12)
@@ -254,7 +254,7 @@ struct AnnotationEditorView: View {
                 // Buttons
                 HStack(spacing: 12) {
                     Button(action: cancelTextInput) {
-                        Text("Cancel")
+                        Text(L10n.Annotation.cancel)
                             .font(.system(size: 13, weight: .medium))
                             .foregroundColor(.secondary)
                             .padding(.horizontal, 20)
@@ -268,7 +268,7 @@ struct AnnotationEditorView: View {
                     .keyboardShortcut(.escape)
 
                     Button(action: addTextAnnotation) {
-                        Text("Add text")
+                        Text(L10n.Annotation.addText)
                             .font(.system(size: 13, weight: .medium))
                             .foregroundColor(.white)
                             .padding(.horizontal, 20)
@@ -300,7 +300,7 @@ struct AnnotationEditorView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "xmark")
                         .font(.system(size: 12, weight: .medium))
-                    Text("Cancel")
+                    Text(L10n.Annotation.cancel)
                         .font(.system(size: 13, weight: .medium))
                 }
                 .foregroundColor(.secondary)
@@ -321,7 +321,7 @@ struct AnnotationEditorView: View {
                 HStack(spacing: 4) {
                     Image(systemName: "pencil.and.scribble")
                         .font(.system(size: 11))
-                    Text("\(annotations.count) annotation\(annotations.count == 1 ? "" : "s")")
+                    Text(L10n.Annotation.annotations(annotations.count))
                         .font(.system(size: 11))
                 }
                 .foregroundColor(.secondary)
@@ -335,7 +335,7 @@ struct AnnotationEditorView: View {
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
                             .font(.system(size: 12, weight: .medium))
-                        Text("Copy")
+                        Text(L10n.Overlay.copy)
                             .font(.system(size: 13, weight: .medium))
                     }
                     .foregroundColor(.primary)
@@ -352,7 +352,7 @@ struct AnnotationEditorView: View {
                     HStack(spacing: 6) {
                         Image(systemName: "square.and.arrow.down")
                             .font(.system(size: 12, weight: .medium))
-                        Text("Save")
+                        Text(L10n.Overlay.save)
                             .font(.system(size: 13, weight: .medium))
                     }
                     .foregroundColor(.white)

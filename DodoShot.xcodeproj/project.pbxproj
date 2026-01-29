@@ -28,6 +28,7 @@
 		M2A3B4C5D6E7F8A9B0C1D2E3 /* MeasurementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = M1A2B3C4D5E6F7A8B9C0D1E2 /* MeasurementService.swift */; };
 		D2A3B4C5D6E7F8A9B0C1D2E3 /* DesktopIconsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2B3C4D5E6F7A8B9C0D1E2 /* DesktopIconsService.swift */; };
 		H2A3B4C5D6E7F8A9B0C1D2E3 /* CaptureHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = H1A2B3C4D5E6F7A8B9C0D1E2 /* CaptureHistoryView.swift */; };
+		L1A2B3C4D5E6F7A8B9C0D1E2 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0A1B2C3D4E5F6A7B8C9D0E1 /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,12 @@
 		M1A2B3C4D5E6F7A8B9C0D1E2 /* MeasurementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementService.swift; sourceTree = "<group>"; };
 		D1A2B3C4D5E6F7A8B9C0D1E2 /* DesktopIconsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopIconsService.swift; sourceTree = "<group>"; };
 		H1A2B3C4D5E6F7A8B9C0D1E2 /* CaptureHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureHistoryView.swift; sourceTree = "<group>"; };
+		L0A1B2C3D4E5F6A7B8C9D0E1 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		EN1A2B3C4D5E6F7A8B9C0D1E /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		TR1A2B3C4D5E6F7A8B9C0D1E /* tr.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tr.lproj; sourceTree = "<group>"; };
+		FR1A2B3C4D5E6F7A8B9C0D1E /* fr.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fr.lproj; sourceTree = "<group>"; };
+		ES1A2B3C4D5E6F7A8B9C0D1E /* es.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = es.lproj; sourceTree = "<group>"; };
+		DE1A2B3C4D5E6F7A8B9C0D1E /* de.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = de.lproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +90,7 @@
 				D000000004 /* Models */,
 				D000000005 /* Views */,
 				D000000006 /* Services */,
+				EXT000001 /* Extensions */,
 				D000000007 /* Resources */,
 				B000000012 /* DodoShot.entitlements */,
 				B000000013 /* Info.plist */,
@@ -141,6 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				B000000011 /* Assets.xcassets */,
+				EN1A2B3C4D5E6F7A8B9C0D1E /* en.lproj */,
+				TR1A2B3C4D5E6F7A8B9C0D1E /* tr.lproj */,
+				FR1A2B3C4D5E6F7A8B9C0D1E /* fr.lproj */,
+				ES1A2B3C4D5E6F7A8B9C0D1E /* es.lproj */,
+				DE1A2B3C4D5E6F7A8B9C0D1E /* de.lproj */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,6 +207,14 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		EXT000001 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				L0A1B2C3D4E5F6A7B8C9D0E1 /* Localization.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +257,10 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				fr,
+				es,
+				de,
 			);
 			mainGroup = D000000001;
 			productRefGroup = D000000003 /* Products */;
@@ -283,6 +308,7 @@
 				M2A3B4C5D6E7F8A9B0C1D2E3 /* MeasurementService.swift in Sources */,
 				D2A3B4C5D6E7F8A9B0C1D2E3 /* DesktopIconsService.swift in Sources */,
 				H2A3B4C5D6E7F8A9B0C1D2E3 /* CaptureHistoryView.swift in Sources */,
+				L1A2B3C4D5E6F7A8B9C0D1E2 /* Localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

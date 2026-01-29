@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.icons8.com/fluency/96/camera.png" alt="DodoShot Logo" width="80" height="80">
+  <img src="icon.png" alt="DodoShot Logo" width="120" height="120">
 </p>
 
 <h1 align="center">DodoShot</h1>

@@ -6,7 +6,7 @@ struct WindowSelectionView: View {
     let windows: [SCWindow]
     let onSelect: (SCWindow) -> Void
     let onCancel: () -> Void
-    var title: String = "Click on a window to capture • Press ESC to cancel"
+    var title: String = L10n.WindowSelection.title + " • " + L10n.WindowSelection.escToCancel
 
     @State private var hoveredWindowID: CGWindowID?
 

@@ -190,16 +190,16 @@ struct CompactOverlayView: View {
 
                 // Quick actions
                 HStack(spacing: 4) {
-                    CompactActionButton(icon: "doc.on.clipboard", tooltip: "Copy") {
+                    CompactActionButton(icon: "doc.on.clipboard", tooltip: L10n.Overlay.copy) {
                         copyToClipboard()
                     }
-                    CompactActionButton(icon: "square.and.arrow.down", tooltip: "Save") {
+                    CompactActionButton(icon: "square.and.arrow.down", tooltip: L10n.Overlay.save) {
                         saveScreenshot()
                     }
-                    CompactActionButton(icon: "pencil.tip", tooltip: "Annotate") {
+                    CompactActionButton(icon: "pencil.tip", tooltip: L10n.Overlay.annotate) {
                         openAnnotationEditor()
                     }
-                    CompactActionButton(icon: "pin", tooltip: "Pin") {
+                    CompactActionButton(icon: "pin", tooltip: L10n.Overlay.pin) {
                         pinScreenshot()
                     }
 
@@ -319,7 +319,7 @@ struct CompactOverlayView: View {
 
     private func timeAgo(_ date: Date) -> String {
         let seconds = Int(-date.timeIntervalSinceNow)
-        if seconds < 60 { return "Just now" }
+        if seconds < 60 { return L10n.Overlay.justNow }
         if seconds < 3600 { return "\(seconds / 60)m ago" }
         return "\(seconds / 3600)h ago"
     }
@@ -377,17 +377,17 @@ struct ExpandedOverlayView: View {
 
             // Actions grid
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 4), spacing: 8) {
-                ExpandedActionButton(icon: "doc.on.clipboard", label: "Copy", color: .blue) {
+                ExpandedActionButton(icon: "doc.on.clipboard", label: L10n.Overlay.copy, color: .blue) {
                     copyToClipboard()
                 }
-                ExpandedActionButton(icon: "square.and.arrow.down", label: "Save", color: .green) {
+                ExpandedActionButton(icon: "square.and.arrow.down", label: L10n.Overlay.save, color: .green) {
                     ScreenCaptureService.shared.saveToFile(screenshot)
                     onDismiss()
                 }
-                ExpandedActionButton(icon: "pencil.tip", label: "Edit", color: .purple) {
+                ExpandedActionButton(icon: "pencil.tip", label: L10n.Overlay.annotate, color: .purple) {
                     onDismiss()
                 }
-                ExpandedActionButton(icon: "pin", label: "Pin", color: .orange) {
+                ExpandedActionButton(icon: "pin", label: L10n.Overlay.pin, color: .orange) {
                     FloatingWindowService.shared.pinScreenshot(screenshot)
                     onDismiss()
                 }
@@ -531,7 +531,7 @@ struct CopiedBadge: View {
         HStack(spacing: 5) {
             Image(systemName: "checkmark")
                 .font(.system(size: 11, weight: .bold))
-            Text("Copied")
+            Text("overlay.copied".localized)
                 .font(.system(size: 11, weight: .semibold))
         }
         .foregroundColor(.white)

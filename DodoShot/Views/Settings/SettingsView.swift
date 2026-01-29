@@ -8,25 +8,25 @@ struct SettingsView: View {
         TabView(selection: $selectedTab) {
             GeneralSettingsTab()
                 .tabItem {
-                    Label("General", systemImage: "gearshape")
+                    Label(L10n.Settings.general, systemImage: "gearshape")
                 }
                 .tag(0)
 
             HotkeysSettingsTab()
                 .tabItem {
-                    Label("Hotkeys", systemImage: "keyboard")
+                    Label(L10n.Settings.hotkeys, systemImage: "keyboard")
                 }
                 .tag(1)
 
             AISettingsTab()
                 .tabItem {
-                    Label("AI", systemImage: "sparkles")
+                    Label(L10n.Settings.ai, systemImage: "sparkles")
                 }
                 .tag(2)
 
             AboutTab()
                 .tabItem {
-                    Label("About", systemImage: "info.circle")
+                    Label(L10n.Settings.about, systemImage: "info.circle")
                 }
                 .tag(3)
         }
@@ -45,11 +45,11 @@ struct GeneralSettingsTab: View {
                 // Appearance Section
                 SettingsSection(
                     icon: "paintbrush",
-                    title: "Appearance",
+                    title: L10n.Settings.appearance,
                     iconColor: .purple
                 ) {
                     VStack(spacing: 12) {
-                        Text("Choose how DodoShot looks")
+                        Text(L10n.Settings.appearanceDescription)
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,14 +72,14 @@ struct GeneralSettingsTab: View {
                 // Capture Settings Section
                 SettingsSection(
                     icon: "camera",
-                    title: "Capture",
+                    title: L10n.Settings.capture,
                     iconColor: .blue
                 ) {
                     VStack(spacing: 12) {
                         SettingsToggleRow(
                             icon: "doc.on.clipboard",
-                            title: "Auto-copy to clipboard",
-                            description: "Automatically copy screenshots after capture",
+                            title: L10n.Settings.autoCopy,
+                            description: L10n.Settings.autoCopyDescription,
                             isOn: $settingsManager.settings.autoCopyToClipboard
                         )
 
@@ -88,8 +88,8 @@ struct GeneralSettingsTab: View {
 
                         SettingsToggleRow(
                             icon: "rectangle.on.rectangle",
-                            title: "Show quick overlay",
-                            description: "Display overlay with actions after capturing",
+                            title: L10n.Settings.showOverlay,
+                            description: L10n.Settings.showOverlayDescription,
                             isOn: $settingsManager.settings.showQuickOverlay
                         )
 
@@ -98,8 +98,8 @@ struct GeneralSettingsTab: View {
 
                         SettingsToggleRow(
                             icon: "desktopcomputer",
-                            title: "Hide desktop icons",
-                            description: "Temporarily hide icons during fullscreen capture",
+                            title: L10n.Settings.hideDesktopIcons,
+                            description: L10n.Settings.hideDesktopIconsDescription,
                             isOn: $settingsManager.settings.hideDesktopIcons
                         )
                     }
@@ -108,13 +108,13 @@ struct GeneralSettingsTab: View {
                 // Storage Section
                 SettingsSection(
                     icon: "folder",
-                    title: "Storage",
+                    title: L10n.Settings.storage,
                     iconColor: .orange
                 ) {
                     VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Save location")
+                                Text(L10n.Settings.saveLocation)
                                     .font(.system(size: 13, weight: .medium))
 
                                 Text(settingsManager.settings.saveLocation)
@@ -130,7 +130,7 @@ struct GeneralSettingsTab: View {
                                 HStack(spacing: 6) {
                                     Image(systemName: "folder.badge.gearshape")
                                         .font(.system(size: 12))
-                                    Text("Choose")
+                                    Text(L10n.Settings.choose)
                                         .font(.system(size: 12, weight: .medium))
                                 }
                                 .foregroundColor(.primary)
@@ -283,12 +283,12 @@ struct HotkeysSettingsTab: View {
                 // Shortcuts Section
                 SettingsSection(
                     icon: "keyboard",
-                    title: "Keyboard shortcuts",
+                    title: L10n.Settings.shortcuts,
                     iconColor: .green
                 ) {
                     VStack(spacing: 0) {
                         HotkeyRow(
-                            label: "Area capture",
+                            label: L10n.Settings.areaCapture,
                             icon: "rectangle.dashed",
                             iconColor: .purple,
                             hotkey: $settingsManager.settings.hotkeys.areaCapture
@@ -298,7 +298,7 @@ struct HotkeysSettingsTab: View {
                             .padding(.vertical, 12)
 
                         HotkeyRow(
-                            label: "Window capture",
+                            label: L10n.Settings.windowCapture,
                             icon: "macwindow",
                             iconColor: .blue,
                             hotkey: $settingsManager.settings.hotkeys.windowCapture
@@ -308,7 +308,7 @@ struct HotkeysSettingsTab: View {
                             .padding(.vertical, 12)
 
                         HotkeyRow(
-                            label: "Fullscreen capture",
+                            label: L10n.Settings.fullscreenCapture,
                             icon: "rectangle.inset.filled",
                             iconColor: .green,
                             hotkey: $settingsManager.settings.hotkeys.fullscreenCapture
@@ -359,7 +359,7 @@ struct HotkeyRow: View {
                         Circle()
                             .fill(Color.red)
                             .frame(width: 6, height: 6)
-                        Text("Recording...")
+                        Text(L10n.Settings.recording)
                             .foregroundColor(.orange)
                     } else {
                         Text(hotkey)
@@ -397,10 +397,10 @@ struct PermissionsNotice: View {
                 .foregroundColor(.orange)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Accessibility permission required")
+                Text(L10n.Settings.permissions)
                     .font(.system(size: 12, weight: .medium))
 
-                Text("DodoShot needs accessibility access for global hotkeys to work.")
+                Text(L10n.Settings.permissionsDescription)
                     .font(.system(size: 11))
                     .foregroundColor(.secondary)
             }
@@ -408,7 +408,7 @@ struct PermissionsNotice: View {
             Spacer()
 
             Button(action: openAccessibilitySettings) {
-                Text("Open settings")
+                Text(L10n.Settings.openSettings)
                     .font(.system(size: 11, weight: .medium))
                     .foregroundColor(.white)
                     .padding(.horizontal, 12)
@@ -453,13 +453,13 @@ struct AISettingsTab: View {
                 // LLM Configuration Section
                 SettingsSection(
                     icon: "sparkles",
-                    title: "LLM configuration",
+                    title: L10n.Settings.llmConfig,
                     iconColor: .pink
                 ) {
                     VStack(spacing: 16) {
                         // Provider selector
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Provider")
+                            Text(L10n.Settings.provider)
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(.secondary)
 
@@ -479,16 +479,16 @@ struct AISettingsTab: View {
 
                         // API Key field
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("API key")
+                            Text(L10n.Settings.apiKey)
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundColor(.secondary)
 
                             HStack(spacing: 8) {
                                 Group {
                                     if showAPIKey {
-                                        TextField("Enter your API key...", text: $settingsManager.settings.llmApiKey)
+                                        TextField(L10n.Settings.apiKeyPlaceholder, text: $settingsManager.settings.llmApiKey)
                                     } else {
-                                        SecureField("Enter your API key...", text: $settingsManager.settings.llmApiKey)
+                                        SecureField(L10n.Settings.apiKeyPlaceholder, text: $settingsManager.settings.llmApiKey)
                                     }
                                 }
                                 .textFieldStyle(.plain)
@@ -522,7 +522,7 @@ struct AISettingsTab: View {
                             HStack(spacing: 4) {
                                 Image(systemName: "lock.shield")
                                     .font(.system(size: 10))
-                                Text("Your API key is stored locally and never shared")
+                                Text(L10n.Settings.apiKeySecure)
                                     .font(.system(size: 10))
                             }
                             .foregroundColor(.secondary)
@@ -594,27 +594,27 @@ struct AIFeaturesInfo: View {
                             .fill(Color.blue.opacity(0.12))
                     )
 
-                Text("AI features")
+                Text(L10n.Settings.aiFeatures)
                     .font(.system(size: 13, weight: .semibold))
             }
 
             VStack(alignment: .leading, spacing: 12) {
                 FeatureRow(
                     icon: "text.viewfinder",
-                    title: "Smart descriptions",
-                    description: "Analyze screenshots and generate detailed descriptions"
+                    title: L10n.Settings.smartDescriptions,
+                    description: L10n.Settings.smartDescriptionsDescription
                 )
 
                 FeatureRow(
                     icon: "doc.text.magnifyingglass",
-                    title: "OCR text extraction",
-                    description: "Extract and copy text from any screenshot"
+                    title: L10n.Settings.ocrExtraction,
+                    description: L10n.Settings.ocrExtractionDescription
                 )
 
                 FeatureRow(
                     icon: "sparkles.rectangle.stack",
-                    title: "Content suggestions",
-                    description: "Get smart suggestions for annotations and edits"
+                    title: L10n.Settings.contentSuggestions,
+                    description: L10n.Settings.contentSuggestionsDescription
                 )
             }
             .padding(16)
@@ -694,7 +694,7 @@ struct AboutTab: View {
                 Text("DodoShot")
                     .font(.system(size: 24, weight: .bold))
 
-                Text("Version 1.0.0")
+                Text(L10n.Settings.version("1.0.0"))
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(.secondary)
                     .padding(.horizontal, 12)
@@ -705,7 +705,7 @@ struct AboutTab: View {
                     )
             }
 
-            Text("A simple, beautiful screenshot tool for macOS")
+            Text(L10n.Settings.tagline)
                 .font(.system(size: 13))
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -720,7 +720,7 @@ struct AboutTab: View {
                 HStack(spacing: 6) {
                     Image(systemName: "doc.text")
                         .font(.system(size: 11))
-                    Text("Open Source • MIT License")
+                    Text(L10n.Settings.openSource)
                         .font(.system(size: 11))
                 }
                 .foregroundColor(.secondary)
@@ -729,7 +729,7 @@ struct AboutTab: View {
                     HStack(spacing: 6) {
                         Image(systemName: "link")
                             .font(.system(size: 12))
-                        Text("View on GitHub")
+                        Text(L10n.Settings.viewOnGitHub)
                             .font(.system(size: 12, weight: .medium))
                     }
                     .foregroundColor(isHoveredGitHub ? .primary : .accentColor)
@@ -751,7 +751,7 @@ struct AboutTab: View {
             Spacer()
 
             // Footer
-            Text("Made with ♥ for the macOS community")
+            Text(L10n.Settings.madeWith)
                 .font(.system(size: 10))
                 .foregroundColor(.secondary.opacity(0.6))
         }

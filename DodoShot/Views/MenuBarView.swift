@@ -12,14 +12,14 @@ struct MenuBarView: View {
             mainCaptureSection
 
             // Divider with label
-            sectionDivider(label: "Tools")
+            sectionDivider(label: L10n.Menu.tools)
 
             // Tools section (secondary)
             toolsSection
 
             // Recent captures
             if !captureService.recentCaptures.isEmpty {
-                sectionDivider(label: "Recent")
+                sectionDivider(label: L10n.Menu.recentCaptures)
                 recentCapturesSection
             }
 
@@ -67,7 +67,7 @@ struct MenuBarView: View {
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(.primary)
 
-                Text("Ready to capture")
+                Text("menu.ready".localized)
                     .font(.system(size: 10))
                     .foregroundColor(.secondary)
             }
@@ -75,12 +75,12 @@ struct MenuBarView: View {
             Spacer()
 
             // History button
-            HeaderButton(icon: "clock.arrow.circlepath", tooltip: "History") {
+            HeaderButton(icon: "clock.arrow.circlepath", tooltip: L10n.Menu.history) {
                 CaptureHistoryWindowController.shared.showHistory()
             }
 
             // Settings button
-            HeaderButton(icon: "gearshape", tooltip: "Settings") {
+            HeaderButton(icon: "gearshape", tooltip: L10n.Menu.settings) {
                 openSettings()
             }
         }
@@ -95,7 +95,7 @@ struct MenuBarView: View {
             HStack(spacing: 8) {
                 PrimaryCaptureButton(
                     icon: "rectangle.dashed",
-                    label: "Area",
+                    label: L10n.Menu.area,
                     shortcut: "⌘⇧4",
                     color: .purple
                 ) {
@@ -104,7 +104,7 @@ struct MenuBarView: View {
 
                 PrimaryCaptureButton(
                     icon: "macwindow",
-                    label: "Window",
+                    label: L10n.Menu.window,
                     shortcut: "⌘⇧5",
                     color: .blue
                 ) {
@@ -113,7 +113,7 @@ struct MenuBarView: View {
 
                 PrimaryCaptureButton(
                     icon: "rectangle.inset.filled",
-                    label: "Screen",
+                    label: L10n.Menu.fullscreen,
                     shortcut: "⌘⇧3",
                     color: .green
                 ) {
@@ -134,7 +134,7 @@ struct MenuBarView: View {
         HStack(spacing: 8) {
             MenuToolButton(
                 icon: "ruler",
-                label: "Ruler",
+                label: L10n.Menu.ruler,
                 color: .cyan
             ) {
                 startPixelRuler()
@@ -142,7 +142,7 @@ struct MenuBarView: View {
 
             MenuToolButton(
                 icon: "eyedropper",
-                label: "Color",
+                label: L10n.Menu.colorPicker,
                 color: .pink
             ) {
                 startColorPicker()
@@ -150,7 +150,7 @@ struct MenuBarView: View {
 
             MenuToolButton(
                 icon: "text.viewfinder",
-                label: "OCR",
+                label: L10n.Menu.ocr,
                 color: .orange
             ) {
                 // TODO: OCR
@@ -185,7 +185,7 @@ struct MenuBarView: View {
         HStack {
             if !captureService.recentCaptures.isEmpty {
                 Button(action: { captureService.clearRecents() }) {
-                    Label("Clear history", systemImage: "trash")
+                    Label("menu.clearHistory".localized, systemImage: "trash")
                         .font(.system(size: 11))
                         .foregroundColor(.secondary)
                 }
@@ -196,7 +196,7 @@ struct MenuBarView: View {
             Spacer()
 
             Button(action: quitApp) {
-                Label("Quit", systemImage: "power")
+                Label(L10n.Menu.quit, systemImage: "power")
                     .font(.system(size: 11))
                     .foregroundColor(.secondary)
             }
@@ -380,11 +380,11 @@ struct ScrollingCaptureRow: View {
                 // Label
                 VStack(alignment: .leading, spacing: 1) {
                     HStack(spacing: 6) {
-                        Text("Scrolling capture")
+                        Text(L10n.Menu.scrolling)
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.primary)
 
-                        Text("NEW")
+                        Text(L10n.Menu.scrollingNew)
                             .font(.system(size: 8, weight: .bold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 4)
@@ -395,7 +395,7 @@ struct ScrollingCaptureRow: View {
                             )
                     }
 
-                    Text("Capture long pages")
+                    Text("menu.scrolling.description".localized)
                         .font(.system(size: 10))
                         .foregroundColor(.secondary)
                 }
@@ -500,17 +500,17 @@ struct RecentCaptureThumbnail: View {
         }
         .contextMenu {
             Button(action: { copyToClipboard() }) {
-                Label("Copy", systemImage: "doc.on.clipboard")
+                Label(L10n.ContextMenu.copy, systemImage: "doc.on.clipboard")
             }
             Button(action: { saveToFile() }) {
-                Label("Save", systemImage: "square.and.arrow.down")
+                Label(L10n.ContextMenu.save, systemImage: "square.and.arrow.down")
             }
             Button(action: { pinScreenshot() }) {
-                Label("Pin to screen", systemImage: "pin")
+                Label(L10n.ContextMenu.pin, systemImage: "pin")
             }
             Divider()
             Button(action: { deleteScreenshot() }) {
-                Label("Delete", systemImage: "trash")
+                Label(L10n.ContextMenu.delete, systemImage: "trash")
             }
         }
     }
@@ -550,7 +550,7 @@ struct ShowAllButton: View {
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundColor(.secondary)
 
-                Text("All")
+                Text(L10n.Menu.showAll)
                     .font(.system(size: 9))
                     .foregroundColor(.secondary)
             }
