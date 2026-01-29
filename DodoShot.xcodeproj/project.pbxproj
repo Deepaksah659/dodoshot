@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A000000001 /* DodoShotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000001 /* DodoShotApp.swift */; };
+		A000000002 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000002 /* Screenshot.swift */; };
+		A000000003 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000003 /* MenuBarView.swift */; };
+		A000000004 /* ScreenCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000004 /* ScreenCaptureService.swift */; };
+		A000000005 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000005 /* SettingsManager.swift */; };
+		A000000006 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000006 /* HotkeyManager.swift */; };
+		A000000007 /* AreaSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000007 /* AreaSelectionView.swift */; };
+		A000000008 /* WindowSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000008 /* WindowSelectionView.swift */; };
+		A000000009 /* QuickOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000009 /* QuickOverlayView.swift */; };
+		A000000010 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000010 /* SettingsView.swift */; };
+		A000000011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B000000011 /* Assets.xcassets */; };
+		A000000012 /* AnnotationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000014 /* AnnotationEditorView.swift */; };
+		A000000013 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000015 /* OCRService.swift */; };
+		A000000014 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000016 /* LLMService.swift */; };
+		A000000015 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000017 /* PermissionManager.swift */; };
+		A000000016 /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000018 /* PermissionView.swift */; };
+		CFEB125692C81C032D338DE1 /* ScrollingCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6EC90117531A792E155A3 /* ScrollingCaptureService.swift */; };
+		F2A3B4C5D6E7F8A9B0C1D2E3 /* FloatingWindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2B3C4D5E6F7A8B9C0D1E2 /* FloatingWindowService.swift */; };
+		M2A3B4C5D6E7F8A9B0C1D2E3 /* MeasurementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = M1A2B3C4D5E6F7A8B9C0D1E2 /* MeasurementService.swift */; };
+		D2A3B4C5D6E7F8A9B0C1D2E3 /* DesktopIconsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A2B3C4D5E6F7A8B9C0D1E2 /* DesktopIconsService.swift */; };
+		H2A3B4C5D6E7F8A9B0C1D2E3 /* CaptureHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = H1A2B3C4D5E6F7A8B9C0D1E2 /* CaptureHistoryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B000000000 /* DodoShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DodoShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B000000001 /* DodoShotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodoShotApp.swift; sourceTree = "<group>"; };
+		B000000002 /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		B000000003 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		B000000004 /* ScreenCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureService.swift; sourceTree = "<group>"; };
+		B000000005 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		B000000006 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		B000000007 /* AreaSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaSelectionView.swift; sourceTree = "<group>"; };
+		B000000008 /* WindowSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectionView.swift; sourceTree = "<group>"; };
+		B000000009 /* QuickOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickOverlayView.swift; sourceTree = "<group>"; };
+		B000000010 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B000000011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B000000012 /* DodoShot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DodoShot.entitlements; sourceTree = "<group>"; };
+		B000000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B000000014 /* AnnotationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationEditorView.swift; sourceTree = "<group>"; };
+		B000000015 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		B000000016 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
+		B000000017 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		B000000018 /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		A9B6EC90117531A792E155A3 /* ScrollingCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingCaptureService.swift; sourceTree = "<group>"; };
+		F1A2B3C4D5E6F7A8B9C0D1E2 /* FloatingWindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindowService.swift; sourceTree = "<group>"; };
+		M1A2B3C4D5E6F7A8B9C0D1E2 /* MeasurementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementService.swift; sourceTree = "<group>"; };
+		D1A2B3C4D5E6F7A8B9C0D1E2 /* DesktopIconsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopIconsService.swift; sourceTree = "<group>"; };
+		H1A2B3C4D5E6F7A8B9C0D1E2 /* CaptureHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureHistoryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D000000001 = {
+			isa = PBXGroup;
+			children = (
+				D000000002 /* DodoShot */,
+				D000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D000000002 /* DodoShot */ = {
+			isa = PBXGroup;
+			children = (
+				B000000001 /* DodoShotApp.swift */,
+				D000000004 /* Models */,
+				D000000005 /* Views */,
+				D000000006 /* Services */,
+				D000000007 /* Resources */,
+				B000000012 /* DodoShot.entitlements */,
+				B000000013 /* Info.plist */,
+			);
+			path = DodoShot;
+			sourceTree = "<group>";
+		};
+		D000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B000000000 /* DodoShot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B000000002 /* Screenshot.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B000000003 /* MenuBarView.swift */,
+				D000000008 /* Capture */,
+				D000000009 /* Overlay */,
+				D000000010 /* Settings */,
+				D000000011 /* Annotation */,
+				D000000012 /* Permissions */,
+				H3A4B5C6D7E8F9A0B1C2D3E4 /* History */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D000000006 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B000000004 /* ScreenCaptureService.swift */,
+				B000000005 /* SettingsManager.swift */,
+				B000000006 /* HotkeyManager.swift */,
+				B000000015 /* OCRService.swift */,
+				B000000016 /* LLMService.swift */,
+				B000000017 /* PermissionManager.swift */,
+				A9B6EC90117531A792E155A3 /* ScrollingCaptureService.swift */,
+				F1A2B3C4D5E6F7A8B9C0D1E2 /* FloatingWindowService.swift */,
+				M1A2B3C4D5E6F7A8B9C0D1E2 /* MeasurementService.swift */,
+				D1A2B3C4D5E6F7A8B9C0D1E2 /* DesktopIconsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D000000007 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B000000011 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D000000008 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				B000000007 /* AreaSelectionView.swift */,
+				B000000008 /* WindowSelectionView.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		D000000009 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				B000000009 /* QuickOverlayView.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		D000000010 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B000000010 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D000000011 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				B000000014 /* AnnotationEditorView.swift */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		D000000012 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				B000000018 /* PermissionView.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		H3A4B5C6D7E8F9A0B1C2D3E4 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				H1A2B3C4D5E6F7A8B9C0D1E2 /* CaptureHistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E000000001 /* DodoShot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F000000003 /* Build configuration list for PBXNativeTarget "DodoShot" */;
+			buildPhases = (
+				C000000002 /* Sources */,
+				C000000001 /* Frameworks */,
+				C000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DodoShot;
+			productName = DodoShot;
+			productReference = B000000000 /* DodoShot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E000000002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = F000000001 /* Build configuration list for PBXProject "DodoShot" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D000000001;
+			productRefGroup = D000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E000000001 /* DodoShot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000000011 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000000001 /* DodoShotApp.swift in Sources */,
+				A000000002 /* Screenshot.swift in Sources */,
+				A000000003 /* MenuBarView.swift in Sources */,
+				A000000004 /* ScreenCaptureService.swift in Sources */,
+				A000000005 /* SettingsManager.swift in Sources */,
+				A000000006 /* HotkeyManager.swift in Sources */,
+				A000000007 /* AreaSelectionView.swift in Sources */,
+				A000000008 /* WindowSelectionView.swift in Sources */,
+				A000000009 /* QuickOverlayView.swift in Sources */,
+				A000000010 /* SettingsView.swift in Sources */,
+				A000000012 /* AnnotationEditorView.swift in Sources */,
+				A000000013 /* OCRService.swift in Sources */,
+				A000000014 /* LLMService.swift in Sources */,
+				A000000015 /* PermissionManager.swift in Sources */,
+				A000000016 /* PermissionView.swift in Sources */,
+				CFEB125692C81C032D338DE1 /* ScrollingCaptureService.swift in Sources */,
+				F2A3B4C5D6E7F8A9B0C1D2E3 /* FloatingWindowService.swift in Sources */,
+				M2A3B4C5D6E7F8A9B0C1D2E3 /* MeasurementService.swift in Sources */,
+				D2A3B4C5D6E7F8A9B0C1D2E3 /* DesktopIconsService.swift in Sources */,
+				H2A3B4C5D6E7F8A9B0C1D2E3 /* CaptureHistoryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F000000004 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F000000005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F000000006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DodoShot/DodoShot.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DodoShot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DodoShot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dodoshot.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F000000007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DodoShot/DodoShot.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DodoShot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DodoShot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dodoshot.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F000000001 /* Build configuration list for PBXProject "DodoShot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F000000004 /* Debug */,
+				F000000005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F000000003 /* Build configuration list for PBXNativeTarget "DodoShot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F000000006 /* Debug */,
+				F000000007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E000000002 /* Project object */;
+}
