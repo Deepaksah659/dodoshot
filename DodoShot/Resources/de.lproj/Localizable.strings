@@ -151,6 +151,9 @@
 "windowSelection.cancel" = "Abbrechen";
 "windowSelection.escToCancel" = "ESC zum Abbrechen drücken";
 
+// MARK: - Area Selection
+"areaSelection.instruction" = "Ziehen zum Auswählen • Loslassen zum Aufnehmen";
+
 // MARK: - Context Menu
 "contextMenu.appearance" = "Erscheinungsbild";
 "contextMenu.copy" = "Kopieren";

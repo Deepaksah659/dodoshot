@@ -151,6 +151,9 @@
 "windowSelection.cancel" = "İptal";
 "windowSelection.escToCancel" = "İptal etmek için ESC'ye basın";
 
+// MARK: - Area Selection
+"areaSelection.instruction" = "Seçmek için sürükle • Yakalamak için bırak";
+
 // MARK: - Context Menu
 "contextMenu.appearance" = "Görünüm";
 "contextMenu.copy" = "Kopyala";

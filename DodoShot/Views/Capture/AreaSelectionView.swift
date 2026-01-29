@@ -43,7 +43,7 @@ struct AreaSelectionView: View {
                 // Instructions
                 if !isDragging {
                     VStack {
-                        InstructionBadge(text: "Click and drag to select area • Press ESC to cancel")
+                        InstructionBadge(text: "areaSelection.instruction".localized)
                             .padding(.top, 60)
                         Spacer()
                     }

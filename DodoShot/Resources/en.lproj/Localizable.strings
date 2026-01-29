@@ -151,6 +151,9 @@
 "windowSelection.cancel" = "Cancel";
 "windowSelection.escToCancel" = "Press ESC to cancel";
 
+// MARK: - Area Selection
+"areaSelection.instruction" = "Drag to select • Release to capture";
+
 // MARK: - Context Menu
 "contextMenu.appearance" = "Appearance";
 "contextMenu.copy" = "Copy";
