@@ -114,7 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let button = statusItem.button {
-            let config = NSImage.SymbolConfiguration(pointSize: 14, weight: .medium)
+            let config = NSImage.SymbolConfiguration(pointSize: 12, weight: .medium)
             if let image = NSImage(systemSymbolName: "camera.viewfinder", accessibilityDescription: "DodoShot")?.withSymbolConfiguration(config) {
                 image.isTemplate = true
                 button.image = image

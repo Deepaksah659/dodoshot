@@ -128,6 +128,29 @@ struct Annotation: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id, type, startPoint, endPoint, colorHex, strokeWidth, text, points, fontSize, fontWeight, fontName, calloutArrowDirection, stepNumber, stepCounterFormat, redactionStyle, redactionIntensity, zIndex
     }
+
+    // Custom decoder to handle missing keys from older .dodo files
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        type = try container.decode(AnnotationType.self, forKey: .type)
+        startPoint = try container.decode(CGPoint.self, forKey: .startPoint)
+        endPoint = try container.decode(CGPoint.self, forKey: .endPoint)
+        colorHex = try container.decode(String.self, forKey: .colorHex)
+        strokeWidth = try container.decode(CGFloat.self, forKey: .strokeWidth)
+        text = try container.decodeIfPresent(String.self, forKey: .text)
+        points = try container.decode([CGPoint].self, forKey: .points)
+        fontSize = try container.decode(CGFloat.self, forKey: .fontSize)
+        fontWeight = try container.decode(String.self, forKey: .fontWeight)
+        fontName = try container.decode(String.self, forKey: .fontName)
+        calloutArrowDirection = try container.decodeIfPresent(CalloutArrowDirection.self, forKey: .calloutArrowDirection) ?? .bottomLeft
+        // New fields with defaults for backward compatibility
+        stepNumber = try container.decodeIfPresent(Int.self, forKey: .stepNumber)
+        stepCounterFormat = try container.decodeIfPresent(StepCounterFormat.self, forKey: .stepCounterFormat) ?? .numeric
+        redactionStyle = try container.decodeIfPresent(RedactionStyle.self, forKey: .redactionStyle) ?? .blur
+        redactionIntensity = try container.decodeIfPresent(CGFloat.self, forKey: .redactionIntensity) ?? 0.7
+        zIndex = try container.decodeIfPresent(Int.self, forKey: .zIndex) ?? 0
+    }
 }
 
 /// Step counter format for numbered annotations
@@ -497,6 +520,52 @@ struct DodoShotProject: Codable {
         encoder.outputFormatting = .prettyPrinted
         let data = try encoder.encode(self)
         try data.write(to: url)
+
+        // Set custom file icon using thumbnail of the image
+        if let thumbnailImage = createThumbnailIcon() {
+            NSWorkspace.shared.setIcon(thumbnailImage, forFile: url.path, options: [])
+        }
+    }
+
+    /// Create a thumbnail icon from the image data
+    private func createThumbnailIcon() -> NSImage? {
+        guard let originalImage = NSImage(data: imageData) else { return nil }
+
+        let iconSize: CGFloat = 512
+        let thumbnailImage = NSImage(size: NSSize(width: iconSize, height: iconSize))
+
+        thumbnailImage.lockFocus()
+
+        // Calculate aspect-fit size
+        let originalSize = originalImage.size
+        let scale = min(iconSize / originalSize.width, iconSize / originalSize.height)
+        let scaledWidth = originalSize.width * scale
+        let scaledHeight = originalSize.height * scale
+        let xOffset = (iconSize - scaledWidth) / 2
+        let yOffset = (iconSize - scaledHeight) / 2
+
+        // Draw rounded rect background (slightly darker)
+        let bgRect = NSRect(x: 8, y: 8, width: iconSize - 16, height: iconSize - 16)
+        let bgPath = NSBezierPath(roundedRect: bgRect, xRadius: 24, yRadius: 24)
+        NSColor(white: 0.15, alpha: 1.0).setFill()
+        bgPath.fill()
+
+        // Draw the image scaled to fit
+        let imageRect = NSRect(
+            x: max(xOffset, 16),
+            y: max(yOffset, 16),
+            width: min(scaledWidth, iconSize - 32),
+            height: min(scaledHeight, iconSize - 32)
+        )
+
+        // Clip to rounded rect
+        let clipPath = NSBezierPath(roundedRect: imageRect, xRadius: 12, yRadius: 12)
+        clipPath.addClip()
+        originalImage.draw(in: imageRect, from: .zero, operation: .sourceOver, fraction: 1.0)
+
+        thumbnailImage.unlockFocus()
+
+        return thumbnailImage
     }
 
     /// Load project from file

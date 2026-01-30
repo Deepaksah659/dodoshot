@@ -447,28 +447,18 @@ struct AnnotationEditorView: View {
 
                 if backdropEnabled {
                     // Backdrop Type
-                    VStack(alignment: .leading, spacing: 10) {
+                    HStack {
                         Text("Type")
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.secondary)
-
-                        HStack(spacing: 8) {
+                        Spacer()
+                        Picker("", selection: $backdropType) {
                             ForEach(BackdropType.allCases, id: \.self) { type in
-                                Button(action: { backdropType = type }) {
-                                    Text(type.rawValue)
-                                        .font(.system(size: 12, weight: .medium))
-                                        .foregroundColor(backdropType == type ? .white : .primary)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
-                                        .frame(maxWidth: .infinity)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .fill(backdropType == type ? Color.purple : Color.primary.opacity(0.06))
-                                        )
-                                }
-                                .buttonStyle(.plain)
+                                Text(type.rawValue).tag(type)
                             }
                         }
+                        .pickerStyle(.menu)
+                        .frame(width: 120)
                     }
 
                     Divider()
@@ -816,11 +806,11 @@ struct AnnotationEditorView: View {
                 }
             }) {
                 Image(systemName: "rectangle.on.rectangle")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: 12, weight: .semibold))
                     .foregroundColor(showBackdropPanel ? .white : .primary.opacity(0.8))
-                    .frame(width: 36, height: 36)
+                    .frame(width: 28, height: 28)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 6)
                             .fill(showBackdropPanel ? Color.purple : Color.primary.opacity(0.05))
                     )
             }
@@ -902,17 +892,17 @@ struct AnnotationEditorView: View {
         HStack(spacing: 16) {
             // Cancel button
             Button(action: onCancel) {
-                HStack(spacing: 6) {
+                HStack(spacing: 5) {
                     Image(systemName: "xmark")
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.system(size: 10, weight: .medium))
                     Text(L10n.Annotation.cancel)
-                        .font(.system(size: 13, weight: .medium))
+                        .font(.system(size: 11, weight: .medium))
                 }
                 .foregroundColor(.secondary)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
                 .background(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 6)
                         .fill(Color.primary.opacity(0.06))
                 )
             }
@@ -938,23 +928,23 @@ struct AnnotationEditorView: View {
             HStack(spacing: 10) {
                 // OCR Button
                 Button(action: performOCR) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 5) {
                         if isPerformingOCR {
                             ProgressView()
-                                .scaleEffect(0.7)
-                                .frame(width: 14, height: 14)
+                                .scaleEffect(0.6)
+                                .frame(width: 12, height: 12)
                         } else {
                             Image(systemName: "text.viewfinder")
-                                .font(.system(size: 12, weight: .medium))
+                                .font(.system(size: 10, weight: .medium))
                         }
                         Text("OCR")
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 11, weight: .medium))
                     }
                     .foregroundColor(.primary)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 6)
                             .fill(Color.primary.opacity(0.06))
                     )
                 }
@@ -963,17 +953,17 @@ struct AnnotationEditorView: View {
                 .help("Extract text from image and copy to clipboard")
 
                 Button(action: copyToClipboard) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 5) {
                         Image(systemName: "doc.on.clipboard")
-                            .font(.system(size: 12, weight: .medium))
+                            .font(.system(size: 10, weight: .medium))
                         Text(L10n.Overlay.copy)
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 11, weight: .medium))
                     }
                     .foregroundColor(.primary)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 6)
                             .fill(Color.primary.opacity(0.06))
                     )
                 }
@@ -981,17 +971,17 @@ struct AnnotationEditorView: View {
 
                 // Save as editable project
                 Button(action: saveProject) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 5) {
                         Image(systemName: "doc.badge.plus")
-                            .font(.system(size: 12, weight: .medium))
+                            .font(.system(size: 10, weight: .medium))
                         Text("Save project")
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 11, weight: .medium))
                     }
                     .foregroundColor(.primary)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 6)
                             .fill(Color.primary.opacity(0.06))
                     )
                 }
@@ -999,25 +989,25 @@ struct AnnotationEditorView: View {
                 .help("Save as editable .dodo project file")
 
                 Button(action: saveImage) {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 5) {
                         Image(systemName: "square.and.arrow.down")
-                            .font(.system(size: 12, weight: .medium))
+                            .font(.system(size: 10, weight: .medium))
                         Text(L10n.Overlay.save)
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 11, weight: .medium))
                     }
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 6)
                             .fill(Color.accentColor)
                     )
                 }
                 .buttonStyle(.plain)
             }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 14)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
         .background(
             ZStack {
                 Color(nsColor: .windowBackgroundColor)
@@ -1646,15 +1636,15 @@ struct AnnotationToolButton: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: tool.icon)
-                .font(.system(size: 15, weight: .semibold))
+                .font(.system(size: 12, weight: .semibold))
                 .foregroundColor(isSelected ? .white : (isHovered ? toolColor : .primary.opacity(0.8)))
-                .frame(width: 36, height: 36)
+                .frame(width: 28, height: 28)
                 .background(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 6)
                         .fill(isSelected ? toolColor : (isHovered ? toolColor.opacity(0.15) : Color.primary.opacity(0.05)))
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 6)
                         .stroke(isSelected ? toolColor : Color.clear, lineWidth: 1)
                 )
         }
@@ -1778,12 +1768,12 @@ struct ToolbarActionButton: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: icon)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 12, weight: .semibold))
                 .foregroundColor(
                     isDisabled ? .secondary.opacity(0.3) :
                     (isDestructive ? (isHovered ? .red : .primary.opacity(0.7)) : .primary.opacity(0.8))
                 )
-                .frame(width: 34, height: 34)
+                .frame(width: 28, height: 28)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
                         .fill(isHovered && !isDisabled ? (isDestructive ? Color.red.opacity(0.1) : Color.primary.opacity(0.1)) : Color.primary.opacity(0.03))

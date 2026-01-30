@@ -37,9 +37,24 @@ final class PermissionManager: ObservableObject {
 
     /// Check screen recording permission
     func checkScreenRecordingPermission() {
-        // Use CGPreflightScreenCaptureAccess to check permission without triggering dialog
-        // This is the recommended way on macOS 10.15+
-        let hasAccess = CGPreflightScreenCaptureAccess()
+        // First try CGPreflightScreenCaptureAccess
+        var hasAccess = CGPreflightScreenCaptureAccess()
+
+        // If preflight says no, do a more thorough check by testing actual capture
+        // This handles cases where macOS doesn't update the preflight status immediately
+        if !hasAccess {
+            // Try to get window list - this is a reliable way to check screen recording permission
+            if let windowList = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as? [[CFString: Any]] {
+                // If we can get window info with titles/owners from other apps, we have permission
+                for window in windowList {
+                    if let ownerName = window[kCGWindowOwnerName] as? String,
+                       ownerName != "DodoShot" && !ownerName.isEmpty {
+                        hasAccess = true
+                        break
+                    }
+                }
+            }
+        }
 
         DispatchQueue.main.async { [weak self] in
             self?.isScreenRecordingGranted = hasAccess

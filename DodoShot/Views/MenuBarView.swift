@@ -33,6 +33,7 @@ struct MenuBarView: View {
                 Color(nsColor: .windowBackgroundColor).opacity(0.5)
             }
         )
+        .preferredColorScheme(.dark)
     }
 
     // MARK: - Header
@@ -121,10 +122,6 @@ struct MenuBarView: View {
                 }
             }
             .padding(.horizontal, 12)
-
-            // Scrolling capture (special)
-            ScrollingCaptureRow(action: { startScrollingCapture() })
-                .padding(.horizontal, 12)
         }
         .padding(.vertical, 10)
     }
@@ -233,13 +230,6 @@ struct MenuBarView: View {
         }
     }
 
-    private func startScrollingCapture() {
-        NSApp.sendAction(#selector(AppDelegate.closePopover), to: nil, from: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            captureService.startScrollingCapture()
-        }
-    }
-
     private func startPixelRuler() {
         NSApp.sendAction(#selector(AppDelegate.closePopover), to: nil, from: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
@@ -255,7 +245,12 @@ struct MenuBarView: View {
     }
 
     private func openSettings() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        NSApp.sendAction(#selector(AppDelegate.closePopover), to: nil, from: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if let appDelegate = NSApp.delegate as? AppDelegate {
+                appDelegate.openSettingsWindow()
+            }
+        }
     }
 
     private func quitApp() {
@@ -349,76 +344,6 @@ struct PrimaryCaptureButton: View {
                 .onChanged { _ in withAnimation(.easeInOut(duration: 0.08)) { isPressed = true } }
                 .onEnded { _ in withAnimation(.easeInOut(duration: 0.08)) { isPressed = false } }
         )
-    }
-}
-
-// MARK: - Scrolling Capture Row
-struct ScrollingCaptureRow: View {
-    let action: () -> Void
-
-    @State private var isHovered = false
-
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 10) {
-                // Icon
-                Image(systemName: "scroll")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [.orange, .yellow],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .frame(width: 28, height: 28)
-                    .background(
-                        RoundedRectangle(cornerRadius: 7)
-                            .fill(Color.orange.opacity(0.12))
-                    )
-
-                // Label
-                VStack(alignment: .leading, spacing: 1) {
-                    HStack(spacing: 6) {
-                        Text(L10n.Menu.scrolling)
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.primary)
-
-                        Text(L10n.Menu.scrollingNew)
-                            .font(.system(size: 8, weight: .bold))
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 4)
-                            .padding(.vertical, 1)
-                            .background(
-                                Capsule()
-                                    .fill(Color.orange)
-                            )
-                    }
-
-                    Text("menu.scrolling.description".localized)
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
-                }
-
-                Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 10, weight: .semibold))
-                    .foregroundColor(.secondary.opacity(0.5))
-            }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 8)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(isHovered ? Color.primary.opacity(0.06) : Color.clear)
-            )
-        }
-        .buttonStyle(.plain)
-        .onHover { hovering in
-            withAnimation(.easeInOut(duration: 0.12)) {
-                isHovered = hovering
-            }
-        }
     }
 }
 
@@ -599,14 +524,6 @@ struct MeasurementMenuToolButton: View {
             color: gradient.first ?? .gray,
             action: action
         )
-    }
-}
-
-struct ScrollingCaptureButton: View {
-    let action: () -> Void
-
-    var body: some View {
-        ScrollingCaptureRow(action: action)
     }
 }
 
