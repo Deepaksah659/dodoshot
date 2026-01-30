@@ -315,25 +315,26 @@ struct AnnotationEditorView: View {
 
     // MARK: - Screenshot Image View
     private var screenshotImageView: some View {
-        Image(nsImage: screenshot.image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .scaleEffect(zoom)
-            .background(
-                GeometryReader { imageGeometry in
-                    Color.clear
-                        .onAppear {
-                            imageSize = imageGeometry.size
-                            actualImageSize = imageGeometry.size
-                        }
-                        .onChange(of: imageGeometry.size) { newSize in
-                            imageSize = newSize
-                            actualImageSize = newSize
-                        }
-                }
-            )
-            .overlay(
-                AnnotationCanvasView(
+        // Group image and annotations together so they scale together
+        ZStack {
+            Image(nsImage: screenshot.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .background(
+                    GeometryReader { imageGeometry in
+                        Color.clear
+                            .onAppear {
+                                imageSize = imageGeometry.size
+                                actualImageSize = imageGeometry.size
+                            }
+                            .onChange(of: imageGeometry.size) { newSize in
+                                imageSize = newSize
+                                actualImageSize = newSize
+                            }
+                    }
+                )
+                .overlay(
+                    AnnotationCanvasView(
                     annotations: $annotations,
                     currentAnnotation: $currentAnnotation,
                     selectedTool: selectedTool,
@@ -359,18 +360,20 @@ struct AnnotationEditorView: View {
                     onTextAdded: { text, position in
                         addTextAnnotationDirect(text: text, position: position)
                     }
+                    )
                 )
-            )
-            .clipShape(RoundedRectangle(cornerRadius: backdropEnabled ? innerRadius : 8))
-            .overlay(
-                RoundedRectangle(cornerRadius: backdropEnabled ? innerRadius : 8)
-                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
-            )
-            .shadow(
-                color: shadowEnabled ? .black.opacity(shadowOpacity) : .black.opacity(0.4),
-                radius: shadowEnabled ? shadowBlur : 20,
-                y: shadowEnabled ? shadowOffset : 5
-            )
+        }
+        .clipShape(RoundedRectangle(cornerRadius: backdropEnabled ? innerRadius : 8))
+        .overlay(
+            RoundedRectangle(cornerRadius: backdropEnabled ? innerRadius : 8)
+                .stroke(Color.white.opacity(0.1), lineWidth: 1)
+        )
+        .shadow(
+            color: shadowEnabled ? .black.opacity(shadowOpacity) : .black.opacity(0.4),
+            radius: shadowEnabled ? shadowBlur : 20,
+            y: shadowEnabled ? shadowOffset : 5
+        )
+        .scaleEffect(zoom)
     }
 
     // MARK: - Backdrop View
