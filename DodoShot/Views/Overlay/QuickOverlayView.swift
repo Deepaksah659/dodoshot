@@ -482,8 +482,12 @@ struct CompactOverlayView: View {
     }
 
     private func openAnnotationEditor() {
-        AnnotationEditorWindowController.shared.showEditor(for: screenshot) { _ in }
+        // Dismiss overlay first to avoid window ordering issues
         onDismiss()
+        // Small delay to ensure overlay is dismissed before opening editor
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            AnnotationEditorWindowController.shared.showEditor(for: screenshot) { _ in }
+        }
     }
 
     private func pinScreenshot() {

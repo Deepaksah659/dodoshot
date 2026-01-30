@@ -1170,8 +1170,9 @@ struct AnnotationEditorView: View {
     private func renderImageWithBackdrop(originalImage: NSImage) -> NSImage {
         let imageSize = originalImage.size
 
-        // Add padding for backdrop (proportional to image size)
-        let paddingPercent: CGFloat = 0.15
+        // Add padding for backdrop (proportional to image size, matching preview)
+        // Use 8% to match the visual appearance of 40pt on typical preview sizes
+        let paddingPercent: CGFloat = 0.08
         let paddingX = imageSize.width * paddingPercent
         let paddingY = imageSize.height * paddingPercent
         let backdropSize = NSSize(
