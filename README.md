@@ -108,10 +108,6 @@ DodoShot is a lightweight, native macOS screenshot application built with SwiftU
 ```bash
 brew tap bluewave-labs/tap
 brew install --cask dodoshot
-```
-
-If you encounter a "damaged app" warning, run:
-```bash
 xattr -cr /Applications/DodoShot.app
 ```
 
